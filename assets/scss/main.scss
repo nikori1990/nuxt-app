@@ -1,0 +1,13 @@
+// element plus 样式重置
+// @import "../element-plus";
+@import "../element-plus/reset";
+
+html,
+body {
+    height: 100%;
+    overflow: auto;
+}
+
+#__nuxt {
+    height: 100%;
+}

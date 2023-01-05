@@ -1,0 +1,90 @@
+<script setup lang="ts">
+import { ElTabPane, ElTabs } from 'element-plus'
+import type { TabsPaneContext } from 'element-plus'
+import { storeToRefs } from 'pinia'
+
+import { usePageStore } from '@/stores/page'
+
+const pageStore = usePageStore()
+const { tagList, title } = storeToRefs(pageStore)
+
+const router = useRouter()
+
+const clickTab = ({ paneName }: TabsPaneContext) => {
+  if (paneName === title.value)
+    return
+
+  tagList.value.forEach((item) => {
+    if (item.name === paneName)
+      router.push(item.path)
+  })
+}
+
+const removeTab = (tabName: string | number) => {
+  pageStore.removeTag(tabName)
+}
+
+const changeTab = (tabName: string | number) => {
+  tagList.value.forEach((item) => {
+    if (item.name === tabName)
+      router.push(item.path)
+  })
+}
+</script>
+
+<template>
+  <div>
+    <ElTabs
+      v-model="title"
+      type="card"
+      class="demo-tabs"
+      @tab-click="clickTab"
+      @tab-remove="removeTab"
+      @tab-change="changeTab"
+    >
+      <ElTabPane
+        v-for="item in tagList"
+        :key="item.name"
+        :closable="item?.closable"
+        :label="item.name"
+        :name="item.name"
+      />
+    </ElTabs>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+  ::v-deep .el-tabs {
+      &__header {
+          margin: 0;
+      }
+
+      &__nav {
+          border: 0 !important;
+      }
+
+      &__item {
+          height: 30px;
+          margin: 5px;
+          line-height: 28px;
+          border: 1px solid var(--el-border-color-light) !important;
+          border-radius: var(--el-border-radius-base);
+      }
+
+      &__item:not(.is-active):hover {
+          color: var(--el-color-primary);
+          background-color: var(--el-color-primary-light-9);
+          border-color: var(--el-color-primary-light-7);
+          outline: none;
+      }
+
+      &__item.is-active {
+          color: #fff;
+          background: var(--el-color-primary);
+
+          &:hover {
+              background: var(--el-color-primary-light-3);
+          }
+      }
+  }
+</style>
