@@ -1,19 +1,5 @@
-import ElementPlus from 'unplugin-element-plus/vite'
-import css from './vite/css'
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    head: {
-      charset: 'utf-8',
-      viewport: 'width=500, initial-scale=1',
-      title: 'My App',
-      meta: [
-        // <meta name="description" content="My amazing site">
-        { name: 'description', content: 'My amazing site.' },
-      ],
-    },
-  },
   // css
   css: ['@unocss/reset/tailwind.css', '~/assets/scss/main.scss'],
 
@@ -22,10 +8,16 @@ export default defineNuxtConfig({
     transpile: ['element-plus/es'],
   },
 
-  vite: {
-    plugins: [ElementPlus()],
-    css,
-  },
+  // vite: {
+  //   plugins: [ElementPlus()],
+  //   css: {
+  //     preprocessorOptions: {
+  //       scss: {
+  //         additionalData: '@import "@/styles/element-plus/index.scss";',
+  //       },
+  //     },
+  //   },
+  // },
 
   // 代理服务器
   nitro: {

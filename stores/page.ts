@@ -11,6 +11,7 @@ export const usePageStore = defineStore('page', {
     return {
       tagList: <Tag[]>[homeTag],
       title: '',
+      breadcrumbList: <string[]>[],
     }
   },
   actions: {
@@ -29,6 +30,9 @@ export const usePageStore = defineStore('page', {
     },
     setTitle(title: any): void {
       this.title = title
+    },
+    setBreadcrumbList(list: any) {
+      this.breadcrumbList = list
     },
   },
   persist: process.client && {

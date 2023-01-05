@@ -1,7 +1,9 @@
 import type { CSSOptions } from 'vite'
 const css = {
   preprocessorOptions: {
-    scss: { additionalData: '@use "@/styles/element-plus/index.scss" as *;' },
+    scss: {
+      additionalData: '@import "@/styles/element-plus/index.scss";',
+    },
   },
 } as CSSOptions
 export default css

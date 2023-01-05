@@ -28,6 +28,7 @@ useHead({
         <Icon v-show="!isCollapse" name="ep-fold" @click="isCollapse = !isCollapse" />
         <Icon v-show="isCollapse" name="ep-expand" @click="isCollapse = !isCollapse" />
       </div>
+      <Breadcrumb />
     </ElHeader>
 
     <ElContainer class="layout-main">
