@@ -32,10 +32,10 @@ useHead({
         <Breadcrumb />
       </div>
       <div class="header-right">
-        <LayoutHeaderThemeMode class="mr-2" />
-        <LayoutHeaderLanguageSelector class="mr-2" />
-        <LayoutHeaderGithubSite class="mr-2" />
+        <LayoutHeaderThemeMode class="mr-4" />
+        <LayoutHeaderGithubSite class="mr-4" />
         <LayoutHeaderFullScreen class="mr-4" />
+        <LayoutHeaderLanguageSelector class="mr-4" />
         <LayoutHeaderAvator />
       </div>
     </ElHeader>

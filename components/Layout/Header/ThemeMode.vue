@@ -6,7 +6,7 @@ const toggleDark = useToggle(isDark)
 </script>
 
 <template>
-  <div>
+  <div class="flex items-center">
     <Icon v-show="isDark" name="ep-moon" size="20" style="cursor:pointer" @click="toggleDark()" />
     <Icon v-show="!isDark" name="ep-sunny" size="20" style="cursor:pointer" @click="toggleDark()" />
   </div>

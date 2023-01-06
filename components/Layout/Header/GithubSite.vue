@@ -5,5 +5,7 @@ function goGithub() {
 </script>
 
 <template>
-  <Icon name="mdi-github" size="20" style="cursor:pointer" @click="goGithub" />
+  <div class="flex items-center">
+    <Icon name="mdi-github" size="20" style="cursor:pointer" @click="goGithub" />
+  </div>
 </template>

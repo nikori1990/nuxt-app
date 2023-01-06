@@ -2,9 +2,9 @@
 </script>
 
 <template>
-  <div class="avator">
+  <div class="avator flex items-center">
     <img class="avator-img rounded-full" src="~assets/images/avator.jpg" alt="avator">
-    <span class="text-black dark:text-light-300">(Niko1990)</span>
+    <span>(Niko1990)</span>
   </div>
 </template>
 
