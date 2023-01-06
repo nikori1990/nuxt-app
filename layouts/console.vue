@@ -33,14 +33,10 @@ useHead({
       </div>
       <div class="header-right">
         <LayoutHeaderThemeMode class="mr-2" />
-        <Icon class="mr-2" name="ion-language" size="20" />
+        <LayoutHeaderLanguageSelector class="mr-2" />
         <LayoutHeaderGithubSite class="mr-2" />
-        <LayoutHeaderFullScreen class="mr-2" />
-        <Icon class="header-icon" name="ep-search" size="20" />
-        <div class="avator rounded">
-          <img class="avator-img" src="~assets/images/avator.jpg" alt="avator">
-          <span>(Niko1990)</span>
-        </div>
+        <LayoutHeaderFullScreen class="mr-4" />
+        <LayoutHeaderAvator />
       </div>
     </ElHeader>
 
@@ -99,14 +95,6 @@ useHead({
         .header-icon {
           cursor: pointer;
           margin-right: 10px;
-        }
-        .avator {
-          &-img {
-            height: 30px;
-            width: 30px;
-          }
-          display: flex;
-          align-items: center;
         }
       }
   }
