@@ -33,7 +33,7 @@ useHead({
       </div>
       <div class="header-right">
         <LayoutHeaderThemeMode class="mr-2" />
-        <Icon class="header-icon" name="ion-language" size="20" />
+        <Icon class="mr-2" name="ion-language" size="20" />
         <LayoutHeaderGithubSite class="mr-2" />
         <LayoutHeaderFullScreen class="mr-2" />
         <Icon class="header-icon" name="ep-search" size="20" />
@@ -144,7 +144,7 @@ useHead({
   }
 
   .page-main {
-      display: flex;
+      // display: flex;
       padding: 15px;
       background: #f3f3f3;
   }

@@ -1,6 +1,14 @@
-<script setup></script>
+<script setup>
+import { useDark, useToggle } from '@vueuse/core'
+
+const isDark = useDark()
+// console.log('isDark', isDark)
+const toggleDark = useToggle(isDark)
+</script>
 
 <template>
-  <Icon class="header-icon" name="ep-sunny" size="20" />
-  <Icon v-if="false" class="header-icon" name="ep-moon" size="20" />
+  <div>
+    <Icon v-show="isDark" name="ep-moon" size="20" style="cursor:pointer" @click="toggleDark()" />
+    <Icon v-show="!isDark" name="ep-sunny" size="20" style="cursor:pointer" @click="toggleDark()" />
+  </div>
 </template>

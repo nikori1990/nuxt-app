@@ -1,3 +1,5 @@
+import ElementPlus from 'unplugin-element-plus/vite'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // css
@@ -8,16 +10,16 @@ export default defineNuxtConfig({
     transpile: ['element-plus/es'],
   },
 
-  // vite: {
-  //   plugins: [ElementPlus()],
-  //   css: {
-  //     preprocessorOptions: {
-  //       scss: {
-  //         additionalData: '@import "@/styles/element-plus/index.scss";',
-  //       },
-  //     },
-  //   },
-  // },
+  vite: {
+    plugins: [ElementPlus()],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "~/styles/element-plus/index.scss" as *;',
+        },
+      },
+    },
+  },
 
   // 代理服务器
   nitro: {
@@ -44,6 +46,7 @@ export default defineNuxtConfig({
     'nuxt-icon',
     'nuxt-icons',
     '@nuxtjs/i18n',
+    // '@nuxtjs/color-mode',
     [
       '@pinia/nuxt',
       {
@@ -56,6 +59,16 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  // colorMode: {
+  //   preference: 'system', // default value of $colorMode.preference
+  //   fallback: 'light', // fallback value if not system preference found
+  //   hid: 'nuxt-color-mode-script',
+  //   globalName: '__NUXT_COLOR_MODE__',
+  //   componentName: 'ColorScheme',
+  //   classPrefix: '',
+  //   classSuffix: '',
+  //   storageKey: 'nuxt-color-mode',
+  // },
   i18n: {
     // add `vueI18n` option to `@nuxtjs/i18n` module options
     vueI18n: {

@@ -11,6 +11,7 @@
     "@antfu/eslint-config": "^0.34.0",
     "@element-plus/icons-vue": "^2.0.10",
     "@iconify-json/ep": "^1.1.8",
+    "@nuxtjs/color-mode": "^3.2.0",
     "@nuxtjs/i18n": "8.0.0-beta.7",
     "@pinia/nuxt": "^0.4.6",
     "@unocss/nuxt": "^0.48.0",
