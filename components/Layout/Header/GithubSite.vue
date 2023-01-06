@@ -1,6 +1,6 @@
 <script setup>
 function goGithub() {
-  window.open('https://github.com')
+  window.open('https://github.com/nikori1990/nuxt-app')
 }
 </script>
 
