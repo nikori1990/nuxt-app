@@ -21,14 +21,27 @@ useHead({
 <template>
   <ElContainer class="common-layout">
     <ElHeader class="layout-header">
-      <div class="logo">
-        <a class="logo-img" href="/">By-Admin</a>
+      <div class="header-left">
+        <div class="logo">
+          <a class="logo-img" href="/">By-Admin</a>
+        </div>
+        <div class="collapse-box">
+          <Icon v-show="!isCollapse" name="ep-fold" @click="isCollapse = !isCollapse" />
+          <Icon v-show="isCollapse" name="ep-expand" @click="isCollapse = !isCollapse" />
+        </div>
+        <Breadcrumb />
       </div>
-      <div class="collapse-box">
-        <Icon v-show="!isCollapse" name="ep-fold" @click="isCollapse = !isCollapse" />
-        <Icon v-show="isCollapse" name="ep-expand" @click="isCollapse = !isCollapse" />
+      <div class="header-right">
+        <LayoutHeaderThemeMode class="mr-2" />
+        <Icon class="header-icon" name="ion-language" size="20" />
+        <LayoutHeaderGithubSite class="mr-2" />
+        <LayoutHeaderFullScreen class="mr-2" />
+        <Icon class="header-icon" name="ep-search" size="20" />
+        <div class="avator rounded">
+          <img class="avator-img" src="~assets/images/avator.jpg" alt="avator">
+          <span>(Niko1990)</span>
+        </div>
       </div>
-      <Breadcrumb />
     </ElHeader>
 
     <ElContainer class="layout-main">
@@ -57,10 +70,9 @@ useHead({
 
   .layout-header {
       display: flex;
-
-      // background: #fafafa;
       align-items: center;
       border-bottom: 1px solid var(--el-border-color-light);
+      justify-content: space-between;
 
       .logo {
           display: flex;
@@ -75,6 +87,27 @@ useHead({
               color: var(--el-color-primary);
               cursor: pointer;
           }
+      }
+      .header-left {
+        display: flex;
+        align-items: center;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        .header-icon {
+          cursor: pointer;
+          margin-right: 10px;
+        }
+        .avator {
+          &-img {
+            height: 30px;
+            width: 30px;
+          }
+          display: flex;
+          align-items: center;
+        }
       }
   }
 
