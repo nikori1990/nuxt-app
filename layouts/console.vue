@@ -47,7 +47,7 @@ useHead({
 
       <ElContainer class="page">
         <Tab />
-        <ElMain class="page-main">
+        <ElMain class="p-[15px] bg-gray-100 dark:bg-gray-800">
           <slot />
         </ElMain>
         <ElFooter class="layout-footer">
@@ -129,12 +129,6 @@ useHead({
       &:hover {
           color: var(--el-color-primary);
       }
-  }
-
-  .page-main {
-      // display: flex;
-      padding: 15px;
-      background: #f3f3f3;
   }
 
   .page-tags {

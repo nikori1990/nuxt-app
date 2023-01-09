@@ -9,7 +9,9 @@ definePageMeta({
 
 <template>
   <div class="w-full">
-    <h1>Console </h1>
+    <h1 class="">
+      Console
+    </h1>
   </div>
 </template>
 

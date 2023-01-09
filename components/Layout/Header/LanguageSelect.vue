@@ -1,11 +1,12 @@
 <script setup>
 import { ElDropdown, ElDropdownItem, ElDropdownMenu } from 'element-plus'
 
-const { locale } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
+const { locale, setLocale } = useI18n()
+// const switchLocalePath = useSwitchLocalePath()
 
 const handleCommand = (command) => {
-  locale.value = command
+  // locale.value = command
+  setLocale(command) // recommended 推荐
   // switchLocalePath(command)
 }
 </script>
@@ -13,7 +14,7 @@ const handleCommand = (command) => {
 <template>
   <div class="flex items-center">
     <!-- <Icon class="mr-2" name="ion-language" size="20" style="cursor:pointer" /> -->
-    <!-- <NuxtLink :to="switchLocalePath('en')">
+    <!-- <NuxtLink :to="switchLocalePath('en')" class="fr-2">
       English
     </NuxtLink> -->
 
@@ -24,10 +25,10 @@ const handleCommand = (command) => {
         </span>
         <template #dropdown>
           <ElDropdownMenu>
-            <ElDropdownItem command="zh">
+            <ElDropdownItem :disabled="locale === 'zh'" command="zh">
               {{ $t('chinese') }}
             </ElDropdownItem>
-            <ElDropdownItem command="en">
+            <ElDropdownItem command="en" :disabled="locale === 'en'">
               {{ $t('english') }}
             </ElDropdownItem>
           </ElDropdownMenu>

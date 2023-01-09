@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ElDivider, ElDropdown, ElDropdownItem, ElDropdownMenu, ElMessage } from 'element-plus'
+import { NButton } from 'naive-ui'
+
 import { useUserStore } from '@/stores/user'
 
 const userStore = useUserStore()
@@ -73,6 +75,10 @@ const handleCommand = (command: string) => {
     <div class="text-center p-4 op-50">
       Current route: <code>{{ route.path }}</code>
     </div>
+
+    <ElDivider />
+
+    <NButton>Naive Button</NButton>
   </div>
 </template>
 
