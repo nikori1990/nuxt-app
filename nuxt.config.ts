@@ -71,20 +71,21 @@ export default defineNuxtConfig({
   // },
   i18n: {
     // add `vueI18n` option to `@nuxtjs/i18n` module options
+    strategy: 'prefix_except_default',
+    langDir: 'locales',
+    locales: [
+      { code: 'zh', iso: 'zh-CN', file: 'zh.json', name: '简体中文' },
+      { code: 'en', iso: 'en-US', file: 'en.json', name: 'English' },
+    ],
+    defaultLocale: 'zh',
+    detectBrowserLanguage: {
+      // useCookie: false,
+      // cookieKey: 'i18n_redirected',
+      alwaysRedirect: true,
+      // redirectOn: 'root', // recommended
+    },
     vueI18n: {
       legacy: false,
-      locale: 'en',
-      messages: {
-        en: {
-          welcome: 'Welcome',
-        },
-        fr: {
-          welcome: 'Bienvenue',
-        },
-        zh: {
-          welcome: '欢迎',
-        },
-      },
     },
   },
 })

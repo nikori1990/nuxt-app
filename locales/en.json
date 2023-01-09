@@ -1,0 +1,8 @@
+{
+  "hello": "Hello, {name} !",
+  "language": "Language",
+  "login": "Login",
+  "chinese": "Chinese",
+  "english": "English",
+  "home": "Home"
+}

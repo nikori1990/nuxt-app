@@ -6,7 +6,7 @@ const userStore = useUserStore()
 
 definePageMeta({
   layout: 'default',
-  middleware: 'redirect-console',
+  // middleware: 'redirect-console',
 })
 
 const route = useRoute()
@@ -36,29 +36,26 @@ const handleCommand = (command: string) => {
     <ElDivider />
 
     <div>
-      <ElDropdown @command="handleCommand">
-        <span class="el-dropdown-link">
-          Language
-          <Icon name="ep-arrow-down" />
-        </span>
-        <template #dropdown>
-          <ElDropdownMenu>
-            <ElDropdownItem command="fr">
-              fr
-            </ElDropdownItem>
-            <ElDropdownItem command="en">
-              en
-            </ElDropdownItem>
-            <ElDropdownItem command="zh">
-              zh
-            </ElDropdownItem>
-            <ElDropdownItem command="ko">
-              ko
-            </ElDropdownItem>
-          </ElDropdownMenu>
-        </template>
-      </ElDropdown>
-      <p>{{ $t('welcome', 'hahaha') }}</p>
+      <ClientOnly>
+        <ElDropdown @command="handleCommand">
+          <span class="el-dropdown-link">
+            Language
+            <Icon name="ep-arrow-down" />
+          </span>
+          <template #dropdown>
+            <ElDropdownMenu>
+              <ElDropdownItem command="en_US">
+                en_US
+              </ElDropdownItem>
+              <ElDropdownItem command="zh_CN">
+                zh_CN
+              </ElDropdownItem>
+            </ElDropdownMenu>
+          </template>
+        </ElDropdown>
+      </ClientOnly>
+      <p>{{ $t('hello', { name: 'Nuxt3' }, 'hahaha') }}</p>
+      <p>{{ $t('haha', { name: 'Nuxt3' }, 'hahaha') }}</p>
     </div>
 
     <ElDivider />

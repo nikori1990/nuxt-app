@@ -1,0 +1,8 @@
+{
+  "hello": "你好, {name} !",
+  "language": "语言",
+  "login": "登录",
+  "chinese": "中文",
+  "english": "英文",
+  "home": "首页"
+}

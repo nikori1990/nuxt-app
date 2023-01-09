@@ -74,7 +74,6 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
           <ElFormItem prop="username">
             <ElInput v-model="form.username" placeholder="请输入用户名">
               <template #prefix>
-                <!-- <nuxt-icon name="search" filled /> -->
                 <Icon name="ep-user" />
               </template>
             </ElInput>
@@ -88,7 +87,7 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
           </ElFormItem>
           <ElFormItem>
             <ElButton class="w-[250px]" type="primary" @click="onSubmit(formRef)">
-              登录
+              {{ $t('login') }}
             </ElButton>
           </ElFormItem>
         </ElForm>

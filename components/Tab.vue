@@ -34,22 +34,24 @@ const changeTab = (tabName: string | number) => {
 
 <template>
   <div>
-    <ElTabs
-      v-model="title"
-      type="card"
-      class="demo-tabs"
-      @tab-click="clickTab"
-      @tab-remove="removeTab"
-      @tab-change="changeTab"
-    >
-      <ElTabPane
-        v-for="item in tagList"
-        :key="item.name"
-        :closable="item?.closable"
-        :label="item.name"
-        :name="item.name"
-      />
-    </ElTabs>
+    <ClientOnly>
+      <ElTabs
+        v-model="title"
+        type="card"
+        class="demo-tabs"
+        @tab-click="clickTab"
+        @tab-remove="removeTab"
+        @tab-change="changeTab"
+      >
+        <ElTabPane
+          v-for="item in tagList"
+          :key="item.name"
+          :closable="item?.closable"
+          :label="item.name"
+          :name="item.name"
+        />
+      </ElTabs>
+    </ClientOnly>
   </div>
 </template>
 

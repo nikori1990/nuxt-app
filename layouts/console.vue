@@ -35,7 +35,7 @@ useHead({
         <LayoutHeaderThemeMode class="mr-4" />
         <LayoutHeaderGithubSite class="mr-4" />
         <LayoutHeaderFullScreen class="mr-4" />
-        <LayoutHeaderLanguageSelector class="mr-4" />
+        <LayoutHeaderLanguageSelect class="mr-4" />
         <LayoutHeaderAvator />
       </div>
     </ElHeader>

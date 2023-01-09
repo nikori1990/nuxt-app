@@ -1,13 +1,14 @@
 import type { Tag } from '@/types/tag'
 
-const homeTag: Tag = {
-  name: 'console',
-  path: '/',
-  closable: false,
-}
-
 export const usePageStore = defineStore('page', {
   state: () => {
+    // const { t } = useI18n()
+    const homeTag: Tag = {
+      name: 'console',
+      // name: t('home', 'console'),
+      path: '/',
+      closable: false,
+    }
     return {
       tagList: <Tag[]>[homeTag],
       title: '',
