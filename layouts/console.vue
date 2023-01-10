@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ElAside, ElContainer, ElFooter, ElHeader, ElMain } from 'element-plus'
 import { storeToRefs } from 'pinia'
 import { usePageStore } from '@/stores/page'
 

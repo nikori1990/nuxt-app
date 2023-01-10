@@ -1,6 +1,8 @@
 import { useUserStore } from './user'
 import type { Menu } from '@/types/menu'
 
+// import Http from '@/utils/request'
+
 interface MenuState {
   menuList: Menu[]
 }
@@ -14,14 +16,18 @@ export const useMenuStore = defineStore('menu', {
   actions: {
     async getMenuList() {
       const userStore = useUserStore()
+
       const headers = {
         Authorization: `bearer ${userStore.token}`,
       }
-      await $fetch('/api/api/v1/menus', {
+
+      await $fetch('/api/v1/menus', {
         method: 'GET',
         headers,
       }).then((res: any) => {
         this.menuList = res.data
+      }).catch((err) => {
+        console.log('err', err)
       })
     },
   },

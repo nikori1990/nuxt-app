@@ -8,7 +8,7 @@ export const useUserStore = defineStore('user', {
   },
   actions: {
     async login(data: LoginData) {
-      await $fetch('/api/api/v1/login', {
+      await $fetch('/api/v1/login', {
         method: 'POST',
         body: data,
       }).then((res: any) => {

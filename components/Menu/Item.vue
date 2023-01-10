@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { ElIcon, ElMenuItem, ElSubMenu } from 'element-plus'
 import { usePageStore } from '@/stores/page'
 import type { Menu } from '@/types/menu'
 import type { Tag } from '@/types/tag'
-
-defineProps<Props>()
-
-const pageStore = usePageStore()
 
 interface Props {
   menu: Menu
   collapse?: boolean
 }
+
+defineProps<Props>()
+
+const pageStore = usePageStore()
 const router = useRouter()
+
 const handleClick = (menu: Menu) => {
   const tag: Tag = {
     name: menu.name,

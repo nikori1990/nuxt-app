@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ElTabPane, ElTabs } from 'element-plus'
 import type { TabsPaneContext } from 'element-plus'
 import { storeToRefs } from 'pinia'
 

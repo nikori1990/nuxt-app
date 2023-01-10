@@ -15,7 +15,7 @@ export default defineNuxtConfig({
             '@css-render/vue3-ssr',
             '@juggle/resize-observer',
           ]
-        : ['@juggle/resize-observer', 'element-plus/es'],
+        : ['@juggle/resize-observer'],
     // transpile: lifecycle === "build" ? ["element-plus"] : [],
   },
 
@@ -40,7 +40,7 @@ export default defineNuxtConfig({
   nitro: {
     devProxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'http://localhost:8000/api',
         changeOrigin: true,
       },
     },
@@ -61,6 +61,8 @@ export default defineNuxtConfig({
     'nuxt-icon',
     'nuxt-icons',
     '@nuxtjs/i18n',
+    '@nuxtjs/algolia',
+    '@element-plus/nuxt',
     // '@nuxtjs/color-mode',
     [
       '@pinia/nuxt',
@@ -74,6 +76,13 @@ export default defineNuxtConfig({
       },
     ],
   ],
+  // elementPlus: {
+  //   importStyle: 'scss',
+  // },
+  algolia: {
+    apiKey: 'MY_API_KEY',
+    applicationId: 'MY_APPLICATION_ID',
+  },
   // colorMode: {
   //   preference: 'system', // default value of $colorMode.preference
   //   fallback: 'light', // fallback value if not system preference found

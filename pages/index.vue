@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ElDivider, ElDropdown, ElDropdownItem, ElDropdownMenu, ElMessage } from 'element-plus'
 import { NButton } from 'naive-ui'
 
 import { useUserStore } from '@/stores/user'
@@ -8,7 +7,7 @@ const userStore = useUserStore()
 
 definePageMeta({
   layout: 'default',
-  // middleware: 'redirect-console',
+  middleware: 'redirect-console',
 })
 
 const route = useRoute()
@@ -79,6 +78,8 @@ const handleCommand = (command: string) => {
     <ElDivider />
 
     <NButton>Naive Button</NButton>
+
+    <MyComponent message="This is an external JSX component" />
   </div>
 </template>
 

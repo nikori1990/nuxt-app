@@ -1,6 +1,4 @@
 <script setup>
-import { ElDropdown, ElDropdownItem, ElDropdownMenu } from 'element-plus'
-
 const { locale, setLocale } = useI18n()
 // const switchLocalePath = useSwitchLocalePath()
 

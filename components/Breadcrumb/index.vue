@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ElBreadcrumb, ElBreadcrumbItem } from 'element-plus'
 import { storeToRefs } from 'pinia'
 
 import { usePageStore } from '@/stores/page'

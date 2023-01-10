@@ -1,6 +1,4 @@
 <script setup>
-import { ElButton } from 'element-plus'
-
 definePageMeta({
   layout: 'console',
   title: 'console',
