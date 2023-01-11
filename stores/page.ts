@@ -5,7 +5,7 @@ export const usePageStore = defineStore('page', {
     // const { t } = useI18n()
     const homeTag: Tag = {
       name: 'console',
-      // name: t('home', 'console'),
+      icon: 'ep-house',
       path: '/',
       closable: false,
     }

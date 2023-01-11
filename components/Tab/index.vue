@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { TabsPaneContext } from 'element-plus'
 import { storeToRefs } from 'pinia'
+import type { Tag } from '@/types/tag'
 
 import { usePageStore } from '@/stores/page'
 
@@ -29,6 +30,15 @@ const changeTab = (tabName: string | number) => {
       router.push(item.path)
   })
 }
+
+const { setX, setY, show } = useContextMenu()
+
+const handleContextMenu = (v: Tag, e: MouseEvent) => {
+  const { clientX, clientY } = e
+  setX(clientX)
+  setY(clientY)
+  show()
+}
 </script>
 
 <template>
@@ -37,7 +47,6 @@ const changeTab = (tabName: string | number) => {
       <ElTabs
         v-model="title"
         type="card"
-        class="demo-tabs"
         @tab-click="clickTab"
         @tab-remove="removeTab"
         @tab-change="changeTab"
@@ -48,38 +57,51 @@ const changeTab = (tabName: string | number) => {
           :closable="item?.closable"
           :label="item.name"
           :name="item.name"
-        />
+        >
+          <template #label>
+            <div class="flex items-center" @contextmenu.prevent="handleContextMenu(item, $event)">
+              <Icon class="mr-1" name="ep-house" />
+              {{ item.name }}
+            </div>
+          </template>
+        </ElTabPane>
       </ElTabs>
+      <TabContextMenu />
     </ClientOnly>
   </div>
 </template>
 
 <style lang="scss" scoped>
-  ::v-deep .el-tabs {
-      &__header {
+  :deep(.el-tabs) {
+      .el-tabs__header {
           margin: 0;
+          display: flex;
+          align-items: center;
       }
 
-      &__nav {
-          border: 0 !important;
+      .el-tabs__nav {
+          border: none;
+          display: flex;
       }
 
-      &__item {
+      .el-tabs__item {
           height: 30px;
           margin: 5px;
           line-height: 28px;
           border: 1px solid var(--el-border-color-light) !important;
           border-radius: var(--el-border-radius-base);
+          display: flex;
+          align-items: center;
       }
 
-      &__item:not(.is-active):hover {
+      .el-tabs__item:not(.is-active):hover {
           color: var(--el-color-primary);
           background-color: var(--el-color-primary-light-9);
           border-color: var(--el-color-primary-light-7);
           outline: none;
       }
 
-      &__item.is-active {
+      .el-tabs__item.is-active {
           color: #fff;
           background: var(--el-color-primary);
 

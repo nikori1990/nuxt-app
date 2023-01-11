@@ -8,4 +8,5 @@ export default defineAppConfig({
       { name: 'description', content: 'My amazing site.' },
     ],
   },
+  pageTransition: { name: 'page', mode: 'out-in' },
 })
