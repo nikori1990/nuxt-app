@@ -11,4 +11,12 @@ export default defineNuxtRouteMiddleware((to) => {
 
   console.log('title', to.meta.title)
   pageStore.setTitle(to.meta.title)
+
+  // const layout = useCookie<LayoutKey>('layout')
+  // console.log('layout', layout)
+
+  // setTimeout(() => {
+  //   setPageLayout(pageStore.layout)
+  // }, 1000)
+  // setPageLayout(pageStore.layout)
 })

@@ -1,4 +1,5 @@
 import type { Tag } from '@/types/tag'
+import type { LayoutKey } from '~~/.nuxt/types/layouts'
 
 export const usePageStore = defineStore('page', {
   state: () => {
@@ -13,6 +14,7 @@ export const usePageStore = defineStore('page', {
       tagList: <Tag[]>[homeTag],
       title: '',
       breadcrumbList: <string[]>[],
+      layout: <LayoutKey>'console',
     }
   },
   actions: {
@@ -28,6 +30,9 @@ export const usePageStore = defineStore('page', {
             this.title = this.tagList[index - 1].name
         }
       })
+    },
+    setLayout(layout: LayoutKey) {
+      this.layout = layout
     },
     setTitle(title: any): void {
       this.title = title

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
+  key: route => route.fullPath,
   layout: 'console',
   title: 'computed',
 })
