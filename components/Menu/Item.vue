@@ -37,7 +37,7 @@ const handleClick = (menu: Menu) => {
     <MenuItem v-for="subMenu in menu?.children" :key="subMenu.id" :menu="subMenu" :collapse="collapse" />
   </ElSubMenu>
   <ElMenuItem v-else :index="menu.path" @click="handleClick(menu)">
-    <ElIcon v-if="menu.icon">
+    <ElIcon v-if="menu.icon" class="z-10">
       <NuxtIcon :name="menu.icon" />
     </ElIcon>
     <span class="z-10">{{ menu.name }}</span>
