@@ -1,6 +1,11 @@
 <script setup>
-const { locale, setLocale } = useI18n()
-// const switchLocalePath = useSwitchLocalePath()
+const { locale, setLocale, locales } = useI18n()
+
+const localeName = computed(() => {
+  return locales.value.find(l => l.code === locale.value).name
+})
+
+// console.log('localeName', localeName)
 
 const handleCommand = (command) => {
   // locale.value = command
@@ -11,23 +16,17 @@ const handleCommand = (command) => {
 
 <template>
   <div class="flex items-center">
-    <!-- <Icon class="mr-2" name="ion-language" size="20" style="cursor:pointer" /> -->
-    <!-- <NuxtLink :to="switchLocalePath('en')" class="fr-2">
-      English
-    </NuxtLink> -->
-
     <ClientOnly>
       <ElDropdown @command="handleCommand">
-        <span class="el-dropdown-link">
-          <Icon class="mr-2" name="ion-language" size="20" style="cursor:pointer" />
+        <span class="el-dropdown-link flex items-center language">
+          <Icon name="ion-language" size="20" style="cursor:pointer" />
+          <span class="text-size-3 font-bold">{{ localeName }}</span>
+          <Icon name="ep-caret-bottom" />
         </span>
         <template #dropdown>
           <ElDropdownMenu>
-            <ElDropdownItem :disabled="locale === 'zh'" command="zh">
-              {{ $t('chinese') }}
-            </ElDropdownItem>
-            <ElDropdownItem command="en" :disabled="locale === 'en'">
-              {{ $t('english') }}
+            <ElDropdownItem v-for="l in locales" :key="l.code" :disabled="locale === l.code" :command="l.code">
+              {{ l.name }}
             </ElDropdownItem>
           </ElDropdownMenu>
         </template>
@@ -35,3 +34,12 @@ const handleCommand = (command) => {
     </ClientOnly>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.language{
+  color: var(--el-text-color-primary)
+}
+.language:hover {
+  color: var(--el-color-primary);
+}
+</style>
