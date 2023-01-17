@@ -11,13 +11,15 @@ export default defineNuxtRouteMiddleware((to) => {
   pageStore.setBreadcrumbList(breadcrumbList)
 
   console.log('meta', to.meta)
-  const tag: Tag = {
-    path: to.path,
-    name: to.meta.title as string,
-    icon: to.meta.icon as string,
-    closable: to.meta.closable as boolean,
+  if (!['/login'].includes(to.path)) {
+    const tag: Tag = {
+      path: to.path,
+      name: to.meta.title as string,
+      icon: to.meta.icon as string,
+      closable: to.meta.closable as boolean,
+    }
+    pageStore.addTag(tag)
   }
-  pageStore.addTag(tag)
 
   // const layout = useCookie<LayoutKey>('layout')
   // console.log('layout', layout)
