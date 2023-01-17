@@ -2,6 +2,8 @@
 definePageMeta({
   layout: 'console',
   title: '用户管理',
+  icon: 'person',
+  closable: true,
 })
 </script>
 

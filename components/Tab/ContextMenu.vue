@@ -4,7 +4,7 @@ import type { Component } from 'vue'
 import { CircleClose, CircleCloseFilled, Close, FullScreen, Refresh, SwitchButton } from '@element-plus/icons-vue'
 import { usePageStore } from '@/stores/page'
 
-const { contextMenu, hide } = useContextMenu()
+const { contextMenu, hide, closeAll, closeOthers, closeMe } = useContextMenu()
 
 const renderIcon = (icon: Component) => {
   return () => {
@@ -26,14 +26,23 @@ console.log('isFullPage', isFullPage)
 function handleSelect(key: string | number) {
   switch (key) {
     case 'fullscreen':
-      // pageStore.setLayout('full-page')
       setLayout('full-page')
       setPageLayout('full-page')
       break
     case 'exitFullScreen':
-      // pageStore.setLayout('console')
       setLayout('console')
       setPageLayout('console')
+      break
+    case 'closeAll':
+      closeAll()
+      break
+    case 'closeOthers':
+      closeOthers()
+      break
+    case 'closeMe':
+      closeMe()
+      break
+    case 'refresh':
       break
   }
   hide()
@@ -42,22 +51,22 @@ function handleSelect(key: string | number) {
 const options = [
   {
     label: '重新加载',
-    key: 'jay gatsby',
+    key: 'refresh',
     icon: renderIcon(Refresh),
   },
   {
     label: '关闭当前',
-    key: 'daisy buchanan',
+    key: 'closeMe',
     icon: renderIcon(Close),
   },
   {
     label: '关闭其他',
-    key: 'nick carraway',
+    key: 'closeOthers',
     icon: renderIcon(CircleClose),
   },
   {
     label: '关闭所有',
-    key: 'others1',
+    key: 'closeAll',
     icon: renderIcon(CircleCloseFilled),
   },
   {

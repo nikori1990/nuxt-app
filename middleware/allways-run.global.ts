@@ -1,4 +1,5 @@
 import { usePageStore } from '@/stores/page'
+import type { Tag } from '@/types/tag'
 
 export default defineNuxtRouteMiddleware((to) => {
   const pageStore = usePageStore()
@@ -9,8 +10,14 @@ export default defineNuxtRouteMiddleware((to) => {
   console.log('breadcrumbList', breadcrumbList)
   pageStore.setBreadcrumbList(breadcrumbList)
 
-  console.log('title', to.meta.title)
-  pageStore.setTitle(to.meta.title)
+  console.log('meta', to.meta)
+  const tag: Tag = {
+    path: to.path,
+    name: to.meta.title as string,
+    icon: to.meta.icon as string,
+    closable: to.meta.closable as boolean,
+  }
+  pageStore.addTag(tag)
 
   // const layout = useCookie<LayoutKey>('layout')
   // console.log('layout', layout)

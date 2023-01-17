@@ -2,6 +2,8 @@
 definePageMeta({
   layout: 'console',
   title: '菜单管理',
+  icon: 'menu',
+  closable: true,
 })
 </script>
 

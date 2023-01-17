@@ -10,18 +10,14 @@ const { tagList, title } = storeToRefs(pageStore)
 
 const router = useRouter()
 
-const clickTab = ({ paneName }: TabsPaneContext) => {
-  if (paneName === title.value)
-    return
-
-  tagList.value.forEach((item) => {
-    if (item.name === paneName)
-      router.push(item.path)
-  })
+const clickTab = (tab: TabsPaneContext, event: Event) => {
+  console.log('tab-click', tab, event)
 }
 
 const removeTab = (tabName: string | number) => {
-  pageStore.removeTag(tabName)
+  const newPath = pageStore.removeTag(tabName)
+  if (newPath !== '')
+    router.push(newPath)
 }
 
 const changeTab = (tabName: string | number) => {
@@ -31,12 +27,13 @@ const changeTab = (tabName: string | number) => {
   })
 }
 
-const { setX, setY, show } = useContextMenu()
+const { setX, setY, setTag, show } = useContextMenu()
 
 const handleContextMenu = (v: Tag, e: MouseEvent) => {
   const { clientX, clientY } = e
   setX(clientX)
   setY(clientY)
+  setTag(v)
   show()
 }
 </script>
@@ -60,7 +57,9 @@ const handleContextMenu = (v: Tag, e: MouseEvent) => {
         >
           <template #label>
             <div class="flex items-center" @contextmenu.prevent="handleContextMenu(item, $event)">
-              <Icon class="mr-1" name="ep-house" />
+              <ElIcon v-if="item.icon" class="mr-1">
+                <NuxtIcon :name="item.icon" />
+              </ElIcon>
               {{ item.name }}
             </div>
           </template>

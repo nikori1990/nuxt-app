@@ -27,9 +27,7 @@ const rules = reactive<FormRules>({
 })
 
 const userStore = useUserStore()
-const router = useRouter()
 const { query } = useRoute()
-console.log('query', query)
 
 const onSubmit = async (formEl: FormInstance | undefined) => {
   if (!formEl)
@@ -43,7 +41,7 @@ const onSubmit = async (formEl: FormInstance | undefined) => {
             navigateTo(query.redirect as string)
             return
           }
-          navigateTo('/console')
+          navigateTo('/')
         })
         .catch(e => console.log(e))
     }
