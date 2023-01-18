@@ -15,12 +15,8 @@ export default defineNuxtRouteMiddleware((to, from) => {
   console.log('meta', toRaw(to.meta))
 
   const { $i18n } = useNuxtApp()
-  console.log('i18n', $i18n)
-  if ($i18n) {
-    const title = $i18n.t(to.meta.titleKey)
-    console.log('title', title)
-    pageStore.setTitle(title)
-  }
+  const title = $i18n.t(to.meta.titleKey)
+  pageStore.setTitle(title)
 
   if (!['/login', '/en/login'].includes(to.path)) {
     const tag: Tag = {
