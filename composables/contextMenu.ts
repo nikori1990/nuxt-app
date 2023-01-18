@@ -46,8 +46,8 @@ export function useContextMenu() {
   }
 
   function closeMe() {
-    const path = contextMenu.value.tag.path
-    const newPath = pageStore.removeTag(path)
+    const name = contextMenu.value.tag.name
+    const newPath = pageStore.removeTag(name)
     if (newPath !== '')
       router.push(newPath)
   }
