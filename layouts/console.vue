@@ -12,9 +12,7 @@ const asideClass = computed(() => {
 const pageStore = usePageStore()
 const { title } = storeToRefs(pageStore)
 
-useHead({
-  title,
-})
+useHead({ title })
 </script>
 
 <template>

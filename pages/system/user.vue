@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'console',
-  title: '用户管理',
+  titleKey: 'pages.system.user',
   icon: 'person',
   closable: true,
 })

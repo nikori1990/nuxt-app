@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { usePageStore } from '@/stores/page'
 import type { Menu } from '@/types/menu'
-import type { Tag } from '@/types/tag'
 
 interface Props {
   menu: Menu
@@ -10,37 +8,33 @@ interface Props {
 
 defineProps<Props>()
 
-const pageStore = usePageStore()
 const router = useRouter()
+const { getLocaleMenuName } = useMenu()
+
+const localePath = useLocalePath()
 
 const handleClick = (menu: Menu) => {
-  const tag: Tag = {
-    name: menu.name,
-    path: menu.path,
-    icon: menu.icon,
-    closable: true,
-  }
-  pageStore.addTag(tag)
-  router.push({ path: menu.path })
+  const path = localePath(menu.path)
+  router.push({ path })
 }
 </script>
 
 <template>
-  <ElSubMenu v-if="menu?.children?.length" :index="menu.path">
+  <ElSubMenu v-if="menu?.children?.length" :index="localePath(menu.path)">
     <template #title>
       <ElIcon v-if="menu.icon">
         <NuxtIcon :name="menu.icon" />
       </ElIcon>
-      <span>{{ menu.name }}</span>
+      <span>{{ getLocaleMenuName(menu.path) }}</span>
     </template>
 
     <MenuItem v-for="subMenu in menu?.children" :key="subMenu.id" :menu="subMenu" :collapse="collapse" />
   </ElSubMenu>
-  <ElMenuItem v-else :index="menu.path" @click="handleClick(menu)">
+  <ElMenuItem v-else :index="localePath(menu.path)" @click="handleClick(menu)">
     <ElIcon v-if="menu.icon" class="z-10">
       <NuxtIcon :name="menu.icon" />
     </ElIcon>
-    <span class="z-10">{{ menu.name }}</span>
+    <span class="z-10">{{ getLocaleMenuName(menu.path) }}</span>
   </ElMenuItem>
 </template>
 

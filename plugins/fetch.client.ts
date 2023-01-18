@@ -8,10 +8,11 @@ export default defineNuxtPlugin(() => {
       console.log('status', response.status)
       console.log('body', response.body)
       console.log('options', options)
-      if (response.status === 403 || response.status === 500)
-        // console.log('path', path)
+      if (response.status === 403 || response.status === 500) {
+        console.log('请求接口出错了...', path)
         // console.log('route', route)
         navigateTo(`/login?redirect=${path}`)
+      }
     },
   })
 })

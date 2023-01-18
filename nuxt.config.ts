@@ -103,10 +103,10 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'zh',
     detectBrowserLanguage: {
-      // useCookie: false,
+      useCookie: true,
       // cookieKey: 'i18n_redirected',
       alwaysRedirect: true,
-      // redirectOn: 'root', // recommended
+      redirectOn: 'root', // recommended
     },
     vueI18n: {
       legacy: false,

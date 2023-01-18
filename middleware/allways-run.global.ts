@@ -1,20 +1,31 @@
 import { usePageStore } from '@/stores/page'
 import type { Tag } from '@/types/tag'
 
-export default defineNuxtRouteMiddleware((to) => {
+export default defineNuxtRouteMiddleware((to, from) => {
+  console.log('from', from, '>>>', 'to', to)
+
   const pageStore = usePageStore()
   console.log('running global middleware')
-  console.log('path', to.path.slice(1))
+  // console.log('path', to.path.slice(1))
 
-  const breadcrumbList = to.path.slice(1).split('/')
-  console.log('breadcrumbList', breadcrumbList)
+  const breadcrumbList = to.matched.map(match => match.path)
+  // console.log('breadcrumbList', breadcrumbList)
   pageStore.setBreadcrumbList(breadcrumbList)
 
-  console.log('meta', to.meta)
-  if (!['/login'].includes(to.path)) {
+  console.log('meta', toRaw(to.meta))
+
+  const { $i18n } = useNuxtApp()
+  console.log('i18n', $i18n)
+  if ($i18n) {
+    const title = $i18n.t(to.meta.titleKey)
+    console.log('title', title)
+    pageStore.setTitle(title)
+  }
+
+  if (!['/login', '/en/login'].includes(to.path)) {
     const tag: Tag = {
       path: to.path,
-      name: to.meta.title as string,
+      name: to.meta.titleKey as string,
       icon: to.meta.icon as string,
       closable: to.meta.closable as boolean,
     }

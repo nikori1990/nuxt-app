@@ -5,15 +5,13 @@ import { usePageStore } from '@/stores/page'
 const pageStore = usePageStore()
 
 const { breadcrumbList } = storeToRefs(pageStore)
+const { getLocaleMenuName } = useMenu()
 </script>
 
 <template>
   <ElBreadcrumb separator="/">
-    <ElBreadcrumbItem :to="{ path: '/' }">
-      首页
-    </ElBreadcrumbItem>
     <ElBreadcrumbItem v-for="(item, i) in breadcrumbList" :key="i">
-      {{ item }}
+      {{ getLocaleMenuName(item) }}
     </ElBreadcrumbItem>
   </ElBreadcrumb>
 </template>

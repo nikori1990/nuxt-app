@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import { ElButton, ElCol, ElForm, ElFormItem, ElInput, ElRow } from 'element-plus'
 import type { FormInstance, FormRules } from 'element-plus'
+import { storeToRefs } from 'pinia'
 import { useUserStore } from '@/stores/user'
 import type { LoginData } from '@/types/loginData'
 
+import { usePageStore } from '@/stores/page'
+const { title } = storeToRefs(usePageStore())
+
 definePageMeta({
   layout: false,
+  titleKey: 'pages.login',
 })
+
+useHead({ title })
 
 const form: LoginData = reactive({
   username: 'admin',

@@ -1,7 +1,9 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'console',
-  title: '部门管理',
+  titleKey: 'pages.system.dept',
+  icon: 'dept',
+  closable: true,
 })
 </script>
 

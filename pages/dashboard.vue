@@ -1,9 +1,8 @@
 <script setup>
 definePageMeta({
   layout: 'console',
-  title: '仪表盘',
+  titleKey: 'pages.dashboard',
   icon: 'dashboard',
-  closable: false,
 })
 </script>
 

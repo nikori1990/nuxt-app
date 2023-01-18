@@ -2,7 +2,7 @@ import type { Tag } from '@/types/tag'
 import type { LayoutKey } from '~~/.nuxt/types/layouts'
 
 const homeTag: Tag = {
-  name: '仪表盘',
+  name: 'pages.dashboard',
   icon: 'dashboard',
   path: '/dashboard',
   closable: false,
@@ -13,16 +13,17 @@ export const usePageStore = defineStore('page', {
     // const { t } = useI18n()
     return {
       tagList: <Tag[]>[homeTag],
-      title: '',
+      titleKey: '',
       breadcrumbList: <string[]>[],
       layout: <LayoutKey>'console',
+      title: '',
     }
   },
   actions: {
     addTag(tag: Tag): void {
       if (this.tagList.every(item => item.name !== tag.name))
         this.tagList.push(tag)
-      this.title = tag.name
+      this.titleKey = tag.name
     },
     removeTag(tagName: string | number): string {
       let newPath = ''
@@ -38,8 +39,8 @@ export const usePageStore = defineStore('page', {
             newPath = homeTag.path
           }
 
-          if (_tag && this.title === item.name) {
-            this.title = _tag.name
+          if (_tag && this.titleKey === item.name) {
+            this.titleKey = _tag.name
             newPath = _tag.path
           }
         }

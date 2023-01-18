@@ -6,7 +6,9 @@ import type { Tag } from '@/types/tag'
 import { usePageStore } from '@/stores/page'
 
 const pageStore = usePageStore()
-const { tagList, title } = storeToRefs(pageStore)
+const { tagList, titleKey } = storeToRefs(pageStore)
+
+const { t } = useI18n()
 
 const router = useRouter()
 
@@ -21,9 +23,13 @@ const removeTab = (tabName: string | number) => {
 }
 
 const changeTab = (tabName: string | number) => {
-  tagList.value.forEach((item) => {
-    if (item.name === tabName)
-      router.push(item.path)
+  console.log('tab-change', tabName)
+  tagList.value.forEach((tag) => {
+    if (tag.name === tabName) {
+      const localePath = useLocalePath()
+      const path = localePath(tag.path)
+      router.push({ path })
+    }
   })
 }
 
@@ -42,7 +48,7 @@ const handleContextMenu = (v: Tag, e: MouseEvent) => {
   <div>
     <ClientOnly>
       <ElTabs
-        v-model="title"
+        v-model="titleKey"
         type="card"
         @tab-click="clickTab"
         @tab-remove="removeTab"
@@ -50,7 +56,7 @@ const handleContextMenu = (v: Tag, e: MouseEvent) => {
       >
         <ElTabPane
           v-for="item in tagList"
-          :key="item.name"
+          :key="item.path"
           :closable="item?.closable"
           :label="item.name"
           :name="item.name"
@@ -60,7 +66,7 @@ const handleContextMenu = (v: Tag, e: MouseEvent) => {
               <ElIcon v-if="item.icon" class="mr-1">
                 <NuxtIcon :name="item.icon" />
               </ElIcon>
-              {{ item.name }}
+              {{ t(item.name) }}
             </div>
           </template>
         </ElTabPane>

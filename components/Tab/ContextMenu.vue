@@ -20,8 +20,8 @@ function onClickoutside() {
 
 const { layout, setLayout } = useLayout()
 const isFullPage = computed(() => layout.value === 'full-page')
-console.log('layout', layout)
-console.log('isFullPage', isFullPage)
+// console.log('layout', layout)
+// console.log('isFullPage', isFullPage)
 
 function handleSelect(key: string | number) {
   switch (key) {

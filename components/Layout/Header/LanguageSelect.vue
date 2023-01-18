@@ -10,7 +10,7 @@ const localeName = computed(() => {
 const handleCommand = (command) => {
   // locale.value = command
   setLocale(command) // recommended 推荐
-  // switchLocalePath(command)
+  // console.log('switchLocalePath', switchLocalePath)
 }
 </script>
 

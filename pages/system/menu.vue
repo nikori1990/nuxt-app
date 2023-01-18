@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'console',
-  title: '菜单管理',
+  titleKey: 'pages.system.menu',
   icon: 'menu',
   closable: true,
 })

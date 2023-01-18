@@ -9,6 +9,7 @@ interface Props {
 withDefaults(defineProps<Props>(), { collapse: false })
 
 const route = useRoute()
+const router = useRouter()
 const menuStore = useMenuStore()
 
 menuStore.getMenuList()
