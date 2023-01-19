@@ -60,7 +60,7 @@ const handleClick = (menu: Menu) => {
       background-color: transparent;
 
       &::after {
-        @include bgStyle(var(--el-color-info-light-9));
+        @include bgStyle(var(--el-color-primary-light-9));
       }
     }
   }

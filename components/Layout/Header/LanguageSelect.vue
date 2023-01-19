@@ -38,7 +38,7 @@ const options = (locales.value as LocaleObject[]).map((l) => {
       <ElDropdown @command="handleCommand">
         <span class="el-dropdown-link flex items-center language">
           <Icon name="ion-language" size="20" style="cursor:pointer" />
-          <span class="text-size-3 font-bold">{{ localeName }}</span>
+          <span class="text-size-14px font-bold">{{ localeName }}</span>
           <Icon name="ep-caret-bottom" />
         </span>
         <template #dropdown>
@@ -80,10 +80,12 @@ const options = (locales.value as LocaleObject[]).map((l) => {
 
 :deep(.el-dropdown-menu__item) {
   margin: 5px;
+  border-radius: 4px;
 }
 
 :deep(.el-dropdown-menu__item.active) {
   background-color: var(--el-dropdown-menuItem-hover-fill);
+  // background-color: var(--n-item-color-hover);
   color: var(--el-color-primary);
 }
 </style>

@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "~/styles/element-plus/index.scss" as *;',
+          additionalData: '@use "~/assets/element-plus/index.scss" as *;',
         },
       },
     },
@@ -98,8 +98,11 @@ export default defineNuxtConfig({
     strategy: 'prefix_except_default',
     langDir: 'locales',
     locales: [
-      { code: 'zh', iso: 'zh-CN', file: 'zh.json', name: '简体中文' },
       { code: 'en', iso: 'en-US', file: 'en.json', name: 'English' },
+      { code: 'zh', iso: 'zh-CN', file: 'zh.json', name: '中文' },
+      { code: 'de', iso: 'de-DE', file: 'de.json', name: 'Deutsch' },
+      { code: 'ko', iso: 'ko-KR', file: 'ko.json', name: '한국어' },
+      { code: 'ja', iso: 'ja-JP', file: 'ja.json', name: '日本語' },
     ],
     defaultLocale: 'zh',
     detectBrowserLanguage: {
