@@ -9,3 +9,12 @@ function goGithub() {
     <Icon name="mdi-github" size="20" style="cursor:pointer" @click="goGithub" />
   </div>
 </template>
+
+<style lang="scss" scoped>
+.icon {
+  cursor: pointer;
+  &:hover {
+    color: var(--el-color-primary)
+  }
+}
+</style>

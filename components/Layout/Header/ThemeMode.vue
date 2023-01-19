@@ -1,13 +1,24 @@
-<script setup>
-import { useDark, useToggle } from '@vueuse/core'
-
+<script setup lang="ts">
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
+const colorMode = useColorMode()
+console.log(colorMode.preference)
 </script>
 
 <template>
-  <div class="flex items-center">
-    <Icon v-show="isDark" name="ep-moon" size="20" style="cursor:pointer" @click="toggleDark()" />
-    <Icon v-show="!isDark" name="ep-sunny" size="20" style="cursor:pointer" @click="toggleDark()" />
-  </div>
+  <ClientOnly>
+    <div class="flex items-center mr-4">
+      <Icon v-if="isDark" name="ep-moon" size="20" @click="toggleDark()" />
+      <Icon v-else name="ep-sunny" size="20" @click="toggleDark()" />
+    </div>
+  </ClientOnly>
 </template>
+
+<style lang="scss" scoped>
+.icon {
+  cursor: pointer;
+  &:hover {
+    color: var(--el-color-primary)
+  }
+}
+</style>

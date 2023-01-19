@@ -1,13 +1,13 @@
 <script setup lang="ts">
 definePageMeta({
-  key: route => route.fullPath,
   layout: 'console',
-  titleKey: 'pages.system.menu',
-  icon: 'menu',
+  titleKey: 'pages.system.index',
+  icon: 'setting',
   closable: true,
 })
 </script>
 
 <template>
-  <h1>Menu - 菜单管理</h1>
+  <h1>System - 系统管理</h1>
+  <h2>hahahaha</h2>
 </template>

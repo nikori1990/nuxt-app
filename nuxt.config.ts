@@ -63,7 +63,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxtjs/algolia',
     '@element-plus/nuxt',
-    // '@nuxtjs/color-mode',
+    '@nuxtjs/color-mode',
     [
       '@pinia/nuxt',
       {
@@ -83,16 +83,16 @@ export default defineNuxtConfig({
     apiKey: 'MY_API_KEY',
     applicationId: 'MY_APPLICATION_ID',
   },
-  // colorMode: {
-  //   preference: 'system', // default value of $colorMode.preference
-  //   fallback: 'light', // fallback value if not system preference found
-  //   hid: 'nuxt-color-mode-script',
-  //   globalName: '__NUXT_COLOR_MODE__',
-  //   componentName: 'ColorScheme',
-  //   classPrefix: '',
-  //   classSuffix: '',
-  //   storageKey: 'nuxt-color-mode',
-  // },
+  colorMode: {
+    // preference: 'system', // default value of $colorMode.preference
+    // fallback: 'light', // fallback value if not system preference found
+    // hid: 'nuxt-color-mode-script',
+    // globalName: '__NUXT_COLOR_MODE__',
+    // componentName: 'ColorScheme',
+    // classPrefix: '',
+    classSuffix: '',
+    storageKey: 'nuxt-color-mode',
+  },
   i18n: {
     // add `vueI18n` option to `@nuxtjs/i18n` module options
     strategy: 'prefix_except_default',

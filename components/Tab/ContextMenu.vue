@@ -2,7 +2,8 @@
 import { NDropdown, NIcon } from 'naive-ui'
 import type { Component } from 'vue'
 import { CircleClose, CircleCloseFilled, Close, FullScreen, Refresh, SwitchButton } from '@element-plus/icons-vue'
-import { usePageStore } from '@/stores/page'
+
+import { Icon } from '#components'
 
 const { contextMenu, hide, closeAll, closeOthers, closeMe } = useContextMenu()
 

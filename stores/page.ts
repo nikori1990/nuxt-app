@@ -21,6 +21,7 @@ export const usePageStore = defineStore('page', {
   },
   actions: {
     addTag(tag: Tag): void {
+      console.log('tag', tag)
       if (this.tagList.every(item => item.name !== tag.name))
         this.tagList.push(tag)
       this.titleKey = tag.name

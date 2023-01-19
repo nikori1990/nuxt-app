@@ -6,7 +6,16 @@ const { isFullscreen, toggle } = useFullscreen()
 
 <template>
   <div class="flex items-center">
-    <Icon v-show="isFullscreen" name="ant-design:fullscreen-exit-outlined" size="20" style="cursor:pointer" @click="toggle" />
-    <Icon v-show="!isFullscreen" name="ant-design:fullscreen-outlined" size="20" style="cursor:pointer" @click="toggle" />
+    <Icon v-if="isFullscreen" name="ant-design:fullscreen-exit-outlined" size="20" @click="toggle" />
+    <Icon v-else name="ant-design:fullscreen-outlined" size="20" @click="toggle" />
   </div>
 </template>
+
+<style lang="scss" scoped>
+.icon {
+  cursor: pointer;
+  &:hover {
+    color: var(--el-color-primary)
+  }
+}
+</style>

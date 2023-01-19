@@ -1,3 +1,4 @@
+// const isDark = useDark()
 export default defineAppConfig({
   head: {
     charset: 'utf-8',
@@ -7,6 +8,9 @@ export default defineAppConfig({
       // <meta name="description" content="My amazing site">
       { name: 'description', content: 'My amazing site.' },
     ],
+    // bodyAttrs: {
+    //   class: isDark ? 'dark' : '',
+    // },
   },
   pageTransition: { name: 'page', mode: 'out-in' },
 })

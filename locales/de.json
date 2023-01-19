@@ -1,0 +1,34 @@
+{
+  "hello": "Hello, {name} !",
+  "language": "Language",
+  "login": "Login",
+  "chinese": "中文",
+  "english": "English",
+  "home": "Home",
+  "dashboard": "Dashboard",
+  "pages": {
+    "login": "Login",
+    "dashboard": "Dashboard",
+    "system": {
+      "index": "System",
+      "user": "User",
+      "menu": "Menu",
+      "role": "Role"
+    },
+    "function": {
+      "index": "Function",
+      "message": "Message",
+      "loading": "Loading",
+      "warterMark": "WarterMark"
+    },
+    "components": {
+      "index": "Components"
+    },
+    "nested": {
+      "index": "Nested"
+    },
+    "echarts": {
+      "index": "Echarts"
+    }
+  }
+}

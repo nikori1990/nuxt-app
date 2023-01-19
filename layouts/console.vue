@@ -23,8 +23,8 @@ useHead({ title })
           <a class="logo-img" href="/">By-Admin</a>
         </div>
         <div class="collapse-box">
-          <Icon v-show="!isCollapse" name="ep-fold" @click="isCollapse = !isCollapse" />
-          <Icon v-show="isCollapse" name="ep-expand" @click="isCollapse = !isCollapse" />
+          <Icon v-if="isCollapse" name="ep-expand" @click="isCollapse = !isCollapse" />
+          <Icon v-else name="ep-fold" @click="isCollapse = !isCollapse" />
         </div>
         <Breadcrumb />
       </div>
