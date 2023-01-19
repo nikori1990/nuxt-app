@@ -25,7 +25,15 @@
       "index": "组件"
     },
     "nested": {
-      "index": "多级菜单"
+      "index": "多级菜单",
+      "menu1": {
+        "index": "菜单1",
+        "menu1-1": "菜单1-1",
+        "menu1-2": {
+          "index": "菜单1-2",
+          "menu1-2-1": "菜单1-2-1"
+        }
+      }
     },
     "echarts": {
       "index": "图表"

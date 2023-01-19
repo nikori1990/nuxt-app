@@ -8,8 +8,16 @@ export default defineNuxtRouteMiddleware((to, from) => {
   console.log('running global middleware')
   // console.log('path', to.path.slice(1))
 
-  const breadcrumbList = to.matched.map(match => match.path)
+  let breadcrumbList = []
+  // const breadcrumbList = to.matched.map(match => match.path)
   // console.log('breadcrumbList', breadcrumbList)
+
+  console.log(to.meta.titleKey)
+  if (to.meta.titleKey && to.meta.titleKey.includes('index'))
+    breadcrumbList = to.matched.filter(match => match.children.length > 0).map(match => match.path)
+  else
+    breadcrumbList = to.matched.map(match => match.path)
+
   pageStore.setBreadcrumbList(breadcrumbList)
 
   console.log('meta', toRaw(to.meta))
@@ -19,7 +27,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
   pageStore.setTitle(title)
 
   if (!['/login', '/en/login'].includes(to.path) && to.path !== '/') {
-    console.log('to.path', to.path)
     const tag: Tag = {
       path: to.path,
       name: to.meta.titleKey as string,

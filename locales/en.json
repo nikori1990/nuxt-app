@@ -25,7 +25,15 @@
       "index": "Components"
     },
     "nested": {
-      "index": "Nested"
+      "index": "Nested",
+      "menu1": {
+        "index": "Menu 1",
+        "menu1-1": "Menu 1-1",
+        "menu1-2": {
+          "index": "Menu 1-2",
+          "menu1-2-1": "Menu 1-2-1"
+        }
+      }
     },
     "echarts": {
       "index": "Echarts"

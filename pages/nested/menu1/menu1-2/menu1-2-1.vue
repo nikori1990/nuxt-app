@@ -2,7 +2,7 @@
 definePageMeta({
   key: route => route.fullPath,
   layout: 'console',
-  title: 'Menu 1-2-1',
+  titleKey: 'pages.nested.menu1.menu1-2.menu1-2-1',
 })
 </script>
 
