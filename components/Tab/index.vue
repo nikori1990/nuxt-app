@@ -7,6 +7,7 @@ import { usePageStore } from '@/stores/page'
 
 const pageStore = usePageStore()
 const { tagList, titleKey } = storeToRefs(pageStore)
+console.log('tagList', tagList)
 
 const { t } = useI18n()
 
@@ -63,7 +64,7 @@ const handleContextMenu = (v: Tag, e: MouseEvent) => {
         >
           <template #label>
             <div class="flex items-center" @contextmenu.prevent="handleContextMenu(item, $event)">
-              <ElIcon v-if="item.icon" class="mr-1">
+              <ElIcon v-if="item && item.icon" class="mr-1">
                 <NuxtIcon :name="item.icon" />
               </ElIcon>
               {{ t(item.name) }}

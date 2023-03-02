@@ -2,6 +2,8 @@
 definePageMeta({
   layout: 'console',
   title: 'console',
+  icon: 'console',
+  titleKey: 'pages.console',
 })
 </script>
 

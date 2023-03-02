@@ -25,6 +25,7 @@ export const useMenuStore = defineStore('menu', {
         method: 'GET',
         headers,
       }).then((res: any) => {
+        console.log('res', res)
         this.menuList = res.data
       }).catch((err) => {
         console.log('err', err)

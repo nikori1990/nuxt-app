@@ -8,6 +8,8 @@ const userStore = useUserStore()
 definePageMeta({
   layout: 'default',
   middleware: 'redirect-console',
+  icon: 'index',
+  titleKey: 'pages.index',
 })
 
 const route = useRoute()
